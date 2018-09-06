@@ -1,0 +1,28 @@
+#语料1
+with open(r'F:\corpara\1.txt') as fh:
+    article = fh.read()
+
+#生成另外九个语料的wordlist只需要更改读取的文件名即可
+
+article = article.replace(",","").replace(".","").replace(":","").replace(";","").replace("?","")
+
+articleL = article.lower();
+
+split = articleL.split()
+#print(split)
+print("\n单词 词频")
+dic = {}
+for i in split:
+    count = split.count(i)
+    dic[i] = count
+    print(i,dic[i])
+
+print('\n词频最大的十个单词')
+print('\n单词 词频')
+
+#排序
+dic1= sorted(dic.items(),key=lambda d:d[1],reverse= True)
+
+#输出词频最大的前十位单词
+for i in range(10):
+    print(dic1[i][0],dic1[i][1])
