@@ -1,0 +1,31 @@
+article ='''
+Big data analytics and business analytics
+by Duan, Lian; Xiong, Ye
+Over the past few decades, with the development of automatic identification, data capture and storage technologies, 
+people generate data much faster and collect data much bigger than ever before in business, science, engineering, education and other areas. 
+Big data has emerged as an important area of study for both practitioners and researchers. 
+It has huge impacts on data-related problems. 
+In this paper, we identify the key issues related to big data analytics and then investigate its applications specifically related to business problems.
+'''
+
+article = article.replace(",","").replace(".","").replace(":","").replace(";","").replace("?","")
+
+articleL = article.lower();
+
+split = articleL.split()
+print(split)
+print("\n")
+dic = {}
+for i in split:
+    count = split.count(i)
+    dic[i] = count
+print(dic)
+
+
+#排序
+dic1= sorted(dic.items(),key=lambda d:d[1],reverse= True)
+print(dic1)
+
+#输出词频最大的前十位单词
+for i in range(10):
+    print(dic1[i])
